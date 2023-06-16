@@ -23,7 +23,7 @@ router.post('/signin', (req, res) => {
         let payload = {
           _id: user._id          
         }
-        let accessToken = Utils.generateAccessToken(payload)        
+        let accessToken = utils.generateAccessToken(payload)        
         // strip the password from our user object        
         user.password = undefined
         // send back response

@@ -6,7 +6,7 @@ const path = require('path')
 
 
 // PUT - add favourite Clothes --------------------------------------
-router.put('/addFavClothing/', Utils.authenticateToken, (req, res) => {  
+router.put('/addFavClothing/', utils.authenticateToken, (req, res) => {  
   // validate check
   if(!req.body.clothingId){
     return res.status(400).json({
@@ -35,7 +35,7 @@ router.put('/addFavClothing/', Utils.authenticateToken, (req, res) => {
 })
 
 // PUT - add favourite shoes --------------------------------------
-router.put('/addFavShoe/', Utils.authenticateToken, (req, res) => {  
+router.put('/addFavShoe/', utils.authenticateToken, (req, res) => {  
   // validate check
   if(!req.body.shoeId){
     return res.status(400).json({
@@ -64,7 +64,7 @@ router.put('/addFavShoe/', Utils.authenticateToken, (req, res) => {
 })
 
 // PUT - add favourite accessories --------------------------------------
-router.put('/addFavAccessorie/', Utils.authenticateToken, (req, res) => {  
+router.put('/addFavAccessorie/', utils.authenticateToken, (req, res) => {  
   // validate check
   if(!req.body.accessorieId){
     return res.status(400).json({
@@ -100,7 +100,7 @@ router.get('/:id', utils.authenticateToken, (req, res) => {
     })
   }
 
-  User.findById(req.params.id).populate('favouriteClothings ')
+  User.findById(req.params.id).populate('favouriteClothings')
     .then(user => {
       res.json(user)
     })
@@ -111,11 +111,12 @@ router.get('/:id', utils.authenticateToken, (req, res) => {
         error: err
       })
     })
+    
 })
 
 
 // PUT - update user ---------------------------------------------
-router.put('/:id', Utils.authenticateToken, (req, res) => {
+router.put('/:id', utils.authenticateToken, (req, res) => {
   // validate request
   if(!req.body) return res.status(400).send("Task content can't be empty")
   

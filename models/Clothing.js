@@ -15,6 +15,11 @@ const clothingSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
+  user: {
+    type: Schema.Types.ObjectId,
+    required: true,
+    ref: 'User'
+  },
   image: {
     type: String,
     required: true    
